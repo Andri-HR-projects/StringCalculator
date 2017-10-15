@@ -31,7 +31,9 @@ public	class	Calculator	{
 			if(nextnumber < 0){
 				negatives += numbers[i] + ",";
 			}
-  		total += nextnumber;
+			if(nextnumber < 1000){
+	  		total += nextnumber;
+			}
 		}
 		if(negatives.length() != 0){
 			negatives = negatives.substring(0, negatives.length() - 1);
