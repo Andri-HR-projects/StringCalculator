@@ -25,4 +25,18 @@ public class CalculatorTest{
     public void testMultipleLinesString() {
         assertEquals(8, Calculator.add("1,2\n3,2"));
     }
+	@Test //5
+    public void testNegativeSting() {
+			String message = null;
+			try
+			{
+					Calculator.add("-1,2\n3,-2");
+			}
+			catch(Exception e)
+			{
+					message = e.getMessage();
+			}
+			assertEquals("Negatives not allowed: -1,-2", message);
+		}
+
 }
