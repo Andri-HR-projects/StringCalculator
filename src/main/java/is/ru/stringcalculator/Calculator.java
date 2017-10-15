@@ -56,15 +56,13 @@ public	class	Calculator	{
 	}
 
 	private static String fixDelimeters(String text){
-		if(text.contains("//;\n")){
-				text = text.replace("//;\n", "");
-			}
-			if(text.contains(";")){
-				text = text.replace(";", ",");
-			}
-			if(text.contains("\n")){
-				text = text.replace("\n", ",");
-			}
+		String temp = "";
+		if(text.startsWith("//")){
+			char delimiter = text.charAt(2);
+			temp = temp + delimiter;
+			text = text.substring(4);
+			text = text.replaceAll(temp, ",");
+		}
 
 		return text;
 	}
