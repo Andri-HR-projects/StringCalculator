@@ -21,4 +21,8 @@ public class CalculatorTest{
     public void testMultipleString() {
         assertEquals(8, Calculator.add("1,2,3,2"));
     }
+  @Test //4
+    public void testMultipleLinesString() {
+        assertEquals(8, Calculator.add("1,2\n3,2"));
+    }
 }
