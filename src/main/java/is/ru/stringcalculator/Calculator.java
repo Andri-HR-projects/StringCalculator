@@ -8,6 +8,7 @@ public	class	Calculator	{
 			return 0;
 		}
     else{
+			text = fixDelimeters(text);
       if (text.contains("\n")) {
         text = text.replace("\n", ",");
       }
@@ -40,6 +41,20 @@ public	class	Calculator	{
 			throw new IllegalArgumentException ("Negatives not allowed: " +negatives);
 		}
   	return total;
+	}
+
+	private static String fixDelimeters(String text){
+		if(text.contains("//;\n")){
+				text = text.replace("//;\n", "");
+			}
+			if(text.contains(";")){
+				text = text.replace(";", ",");
+			}
+			if(text.contains("\n")){
+				text = text.replace("\n", ",");
+			}
+
+		return text;
 	}
 
 }

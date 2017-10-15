@@ -42,5 +42,9 @@ public class CalculatorTest{
 	    public void testTooLargeString() {
 	        assertEquals(2009, Calculator.add("1,6,3,1000,1002,999"));
 	    }
+		@Test //7
+			public void testNewDelimeter(){
+				assertEquals(8, Calculator.add("//;\n1,3;4"));
+			}
 
 }
