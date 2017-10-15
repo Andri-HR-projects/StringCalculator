@@ -1,0 +1,1 @@
+java -cp ".;classes" is.ru.stringcalculator.Calculator
