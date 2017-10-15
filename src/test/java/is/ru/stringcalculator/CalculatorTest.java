@@ -17,4 +17,8 @@ public class CalculatorTest{
     public void testTwoString() {
         assertEquals(3, Calculator.add("1,2"));
     }
+  @Test //3
+    public void testMultipleString() {
+        assertEquals(8, Calculator.add("1,2,3,2"));
+    }
 }
