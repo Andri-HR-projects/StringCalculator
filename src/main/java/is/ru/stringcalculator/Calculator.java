@@ -31,7 +31,7 @@ public	class	Calculator	{
 			if(nextnumber < 0){
 				negatives += numbers[i] + ",";
 			}
-			if(nextnumber < 1000){
+			if(nextnumber <= 1000){
 	  		total += nextnumber;
 			}
 		}

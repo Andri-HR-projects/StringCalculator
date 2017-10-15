@@ -40,7 +40,7 @@ public class CalculatorTest{
 		}
 		@Test //6
 	    public void testTooLargeString() {
-	        assertEquals(1009, Calculator.add("1,6,3,1000,1002,999"));
+	        assertEquals(2009, Calculator.add("1,6,3,1000,1002,999"));
 	    }
 
 }
