@@ -9,11 +9,10 @@ public	class	Calculator	{
 		}
     else{
 			text = fixDelimeters(text);
-      if (text.contains("\n")) {
-        text = text.replace("\n", ",");
-      }
+			text = fixNewLine(text);
       if(text.contains(",")){
         String numbers[] = text.split(",");
+				checkNegative(numbers);
         return sum(numbers);
       }
 			return Integer.parseInt(text);
@@ -25,22 +24,35 @@ public	class	Calculator	{
   }
 
   private static int sum(String [] numbers){
-		String negatives = new String();
 		int total = 0;
   	for(int i = 0; i < numbers.length; i++){
 			int nextnumber = toInt(numbers[i]);
-			if(nextnumber < 0){
-				negatives += numbers[i] + ",";
-			}
 			if(nextnumber <= 1000){
 	  		total += nextnumber;
 			}
 		}
-		if(negatives.length() != 0){
-			negatives = negatives.substring(0, negatives.length() - 1);
-			throw new IllegalArgumentException ("Negatives not allowed: " +negatives);
-		}
   	return total;
+	}
+
+	private static void checkNegative(String[] numbers){
+		String negatives = new String();
+			for(String number: numbers){
+				if(toInt(number) < 0){
+					negatives += number + ",";
+				}
+			}
+
+			if(negatives.length() != 0){
+				negatives = negatives.substring(0, negatives.length() - 1);
+				throw new IllegalArgumentException ("Negatives not allowed: " +negatives);
+			}
+	}
+
+	private static String fixNewLine(String text){
+		if (text.contains("\n")) {
+			text = text.replace("\n", ",");
+		}
+		return text;
 	}
 
 	private static String fixDelimeters(String text){
